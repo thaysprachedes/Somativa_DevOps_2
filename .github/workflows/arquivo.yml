@@ -13,19 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Building"
-  test-job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
       - run: docker build . --tag thayspm 
+  test-job:
+		needs: build-job
+    runs-on: ubuntu-latest
+    steps:     
       - uses: actions/checkout@v3
       - run: docker run -d -p 3000:3000 thayspm
       - uses: AppThreat/sast-scan-action@master
         with:
          type: nodejs
   deploy-job:
+		needs: [build-job, test-job]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: docker push thays90/aplicacao_web
       - run: echo "Finalizado!"
