@@ -8,8 +8,8 @@ services:
 - docker
 
 
-install:
-  - npm install
+# install:
+#   - npm install
   
 branches:
 only:
