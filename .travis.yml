@@ -17,7 +17,7 @@ only:
   
 script:
   - docker pull thays90/aplicacao_web
-  - docker run -v $PWD/:/app/report/ thays90/aplicacao_web
+  - docker run -d -p 3000:3000 thayspm
 
 # after_script:
 #   - bash ./telegram_notification.sh
@@ -25,8 +25,8 @@ script:
 after_success:
 
   - ls  
-  - chmod +x final_report.sh
-  - . final_report.sh
+  # - chmod +x final_report.sh
+  # - . final_report.sh
 
 #   - echo $RESULT
 #   - bash ./telegram_notification.sh
