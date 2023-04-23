@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v3
       - run: echo "test-job"
       - uses: AppThreat/sast-scan-action@master
-        with: null
-        type: python
+        with:
+         type: python
   deploy-job:
     runs-on: ubuntu-latest
     steps:
