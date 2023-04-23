@@ -17,8 +17,7 @@ jobs:
   test-job:
     needs: build-job
     runs-on: ubuntu-latest
-    steps:     
-      - uses: actions/checkout@v3
+    steps:
       - run: docker run -d -p 3000:3000 thayspm
       - uses: AppThreat/sast-scan-action@master
         with:
