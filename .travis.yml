@@ -17,7 +17,7 @@ only:
   
 script:
   - docker pull thays90/aplicacao_web
-  - docker run -d -p 3000:3000 thayspm
+  - docker run -d -p 3000:3000 thays90/aplicacao_web
 
 # after_script:
 #   - bash ./telegram_notification.sh
