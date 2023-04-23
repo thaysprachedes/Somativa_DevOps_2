@@ -27,5 +27,5 @@ jobs:
     needs: [build-job, test-job]
     runs-on: ubuntu-latest
     steps:
-      - uses: docker push thays90/aplicacao_web
-      - run: echo "Finalizado!"
+      - uses: actions/checkout@v3
+      - run: docker push thays90/aplicacao_web
