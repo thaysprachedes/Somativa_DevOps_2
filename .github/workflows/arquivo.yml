@@ -23,7 +23,7 @@ jobs:
       - run: docker run -d -p 3000:3000 thayspm
       - uses: AppThreat/sast-scan-action@master
         with:
-         type: python
+         type: nodejs
   deploy-job:
     runs-on: ubuntu-latest
     steps:
