@@ -1,0 +1,32 @@
+language: node_js
+sudo: required
+node_js:
+  - 18.16.0
+cache: npm
+
+services:
+- docker
+
+
+install:
+  - npm install
+  
+branches:
+only:
+  - main
+  
+script:
+  - docker pull thays90/aplicacao_web
+  - docker run -v $PWD/:/app/report/ thays90/aplicacao_web
+
+# after_script:
+#   - bash ./telegram_notification.sh
+  
+after_success:
+
+  - ls  
+  - chmod +x final_report.sh
+  - . final_report.sh
+
+#   - echo $RESULT
+#   - bash ./telegram_notification.sh
