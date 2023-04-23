@@ -1,7 +1,7 @@
 language: node_js
 sudo: required
-# node_js:
-#   - 18.14.0
+node_js:
+  - v18.14.0
 # cache: npm
 
 services:
