@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm install
+      - run: docker build . --tag thayspm 
       - uses: actions/checkout@v3
-      - run: npm start
+      - run: docker run -d -p 3000:3000 thayspm
       - uses: AppThreat/sast-scan-action@master
         with:
          type: nodejs
